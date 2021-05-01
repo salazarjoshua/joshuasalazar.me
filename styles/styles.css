@@ -11,23 +11,13 @@ html {
 }
 
 :root {
-  --black: #121212;
-  --gray: #555555;
-}
-
-@font-face {
-  font-family: 'Inter', sans-serif;
-  src: url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap);
-  font-weight: normal;
-  font-style: normal;
-  -webkit-font-feature-settings: "salt" on;
-  -o-font-feature-settings: "salt" on;
-  font-feature-settings: "salt" on;
+  --primary-color: #121212;
+  --secondary-color: #555555;
 }
 
 body {
-  background: #fafafa;
-  color: var(--black);
+  background: #fff;
+  color: var(--primary-color);
   font-family: 'Inter', sans-serif;
   -webkit-font-feature-settings: "salt" on;
           font-feature-settings: "salt" on;
@@ -37,7 +27,7 @@ body {
 }
 
 a:focus, button:focus {
-  outline: 3px dashed var(--black);
+  outline: 3px dashed var(--primary-color);
   outline-offset: 4px;
   text-decoration: none;
 }
@@ -99,7 +89,7 @@ img {
   line-height: 24px;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--black);
+  color: var(--primary-color);
   display: inline-block;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -110,7 +100,7 @@ img {
   font-size: 20px;
   line-height: 30px;
   font-weight: 500;
-  color: var(--black);
+  color: var(--primary-color);
   display: inline-block;
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -145,8 +135,8 @@ button:hover {
 }
 
 /* Colors */
-.c-gray {
-  color: var(--gray);
+.c-secondary-color {
+  color: var(--secondary-color);
 }
 
 /* spacing */
@@ -208,10 +198,11 @@ header p {
 .project img {
   width: 100%;
   min-width: 210px;
+  min-height: 210px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
-  background: #ECECEC;
+  background: #ececec;
 }
 
 .project .project-details {
