@@ -13,13 +13,13 @@ html {
 :root {
     --primary-color: #121212;
     --secondary-color: #555555;
+    --background: #fff;
 }
 
 body {
-    background: #fff;
+    background: var(--background);
     color: var(--primary-color);
     font-family: 'Inter', sans-serif;
-    font-feature-settings: "salt" on;
     font-weight: normal;
     font-size: 20px;
     line-height: 30px;
@@ -173,10 +173,31 @@ button {
     margin-bottom: 64px;
 }
 
+/* Header */
+
 header {
     p {
         max-inline-size: 45ch;
     }
+}
+
+.wave {
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 80% 80%; 
+    display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
 }
 
 /* Project */
