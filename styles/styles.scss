@@ -12,7 +12,7 @@ html {
 
 :root {
     --primary-color: #121212;
-    --secondary-color: #555555;
+    --secondary-color: #5f5f5f;
     --background: #fff;
 }
 
@@ -45,12 +45,13 @@ a:hover, button:hover {
 }
 
 img{
-    vertical-align: bottom
+    vertical-align: bottom;
+    width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
     .wrapper {
-        padding: 0 40px;
+        padding: 0 24px;
     }
 
     .section-py {
@@ -61,13 +62,13 @@ img{
 /* Typography */
 
 .heading1 {
-    font-size: 50px;
-    line-height: 54px;
+    font-size: 48px;
+    line-height: 48px;
     font-weight: 700;
 }
 
 .heading2 {
-    font-size: 30px;
+    font-size: 32px;
     line-height: 36px;
     font-weight: 700;
 }
@@ -76,11 +77,19 @@ img{
     font-size: 24px;
     line-height: 31px;
     font-weight: 700;
+    margin-bottom: 4px;
 }
 
 @media only screen and (max-width: 768px) {
     .heading1 {
-        font-size: 42px;
+        font-size: 44px;
+        line-height: 38px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .heading1 {
+        font-size: 40;
         line-height: 38px;
     }
 }
@@ -119,7 +128,7 @@ button {
 
 .sm-body{
     font-size: 16px;
-    line-height: 24px;
+    line-height: 26px;
 }
 
 .xs-body{
@@ -191,40 +200,59 @@ header {
 
 @keyframes wave-animation {
     0% { transform: rotate( 0.0deg) }
-   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   10% { transform: rotate(14.0deg) }
    20% { transform: rotate(-8.0deg) }
    30% { transform: rotate(14.0deg) }
    40% { transform: rotate(-4.0deg) }
    50% { transform: rotate(10.0deg) }
-   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+   60% { transform: rotate( 0.0deg) }
   100% { transform: rotate( 0.0deg) }
 }
 
-/* Project */
 
-.project {
+/* Work */
+
+.work {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     row-gap: 16px;
     column-gap: 25px;
 
-    .project-img {
-        flex: 30%;
-    }
-    img {
+    .work-img {
         width: 100%;
-        min-width: 210px;
-        min-height: 210px;
-        object-fit: cover;
+        overflow: hidden;
         border-radius: 10px;
-        background: #ececec;
+
+        img {
+            border-radius: 10px;
+            object-fit: cover;
+            background: #ececec;
+            transition: all 0.3s ease;
+        }
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+
     }
 
-    .project-details {
-        flex: 70%;
-        flex-basis: 300px;
-        flex-grow: 1;
+    .work-details {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 677px) {
+    .work {
+        flex-direction: row;
+
+        .work-img {
+            width: 43%;
+        }
+
+        .work-details {
+            width: 57%;
+        }
     }
 }
 
@@ -235,8 +263,8 @@ header {
     list-style-type: none;
 }
 
-#contact {
-    p a {
+.contact {
+    a {
         word-break: break-all;
     }
 }

@@ -12,7 +12,7 @@ html {
 
 :root {
   --primary-color: #121212;
-  --secondary-color: #555555;
+  --secondary-color: #5f5f5f;
   --background: #fff;
 }
 
@@ -46,11 +46,12 @@ a:hover, button:hover {
 
 img {
   vertical-align: bottom;
+  width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
   .wrapper {
-    padding: 0 40px;
+    padding: 0 24px;
   }
   .section-py {
     padding: 60px 0;
@@ -59,13 +60,13 @@ img {
 
 /* Typography */
 .heading1 {
-  font-size: 50px;
-  line-height: 54px;
+  font-size: 48px;
+  line-height: 48px;
   font-weight: 700;
 }
 
 .heading2 {
-  font-size: 30px;
+  font-size: 32px;
   line-height: 36px;
   font-weight: 700;
 }
@@ -74,11 +75,19 @@ img {
   font-size: 24px;
   line-height: 31px;
   font-weight: 700;
+  margin-bottom: 4px;
 }
 
 @media only screen and (max-width: 768px) {
   .heading1 {
-    font-size: 42px;
+    font-size: 44px;
+    line-height: 38px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .heading1 {
+    font-size: 40;
     line-height: 38px;
   }
 }
@@ -117,7 +126,7 @@ button:hover {
 
 .sm-body {
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;
 }
 
 .xs-body {
@@ -194,7 +203,6 @@ header p {
     -webkit-transform: rotate(14deg);
             transform: rotate(14deg);
   }
-  /* The following five values can be played with to make the waving more or less extreme */
   20% {
     -webkit-transform: rotate(-8deg);
             transform: rotate(-8deg);
@@ -215,7 +223,6 @@ header p {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  /* Reset for the last half to pause */
   100% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -231,7 +238,6 @@ header p {
     -webkit-transform: rotate(14deg);
             transform: rotate(14deg);
   }
-  /* The following five values can be played with to make the waving more or less extreme */
   20% {
     -webkit-transform: rotate(-8deg);
             transform: rotate(-8deg);
@@ -252,54 +258,63 @@ header p {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  /* Reset for the last half to pause */
   100% {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
 }
 
-/* Project */
-.project {
+/* Work */
+.work {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 16px;
   -webkit-column-gap: 25px;
           column-gap: 25px;
 }
 
-.project .project-img {
-  -webkit-box-flex: 30%;
-      -ms-flex: 30%;
-          flex: 30%;
+.work .work-img {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
-.project img {
-  width: 100%;
-  min-width: 210px;
-  min-height: 210px;
+.work .work-img img {
+  border-radius: 10px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 10px;
   background: #ececec;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-.project .project-details {
-  -webkit-box-flex: 70%;
-      -ms-flex: 70%;
-          flex: 70%;
-  -ms-flex-preferred-size: 300px;
-      flex-basis: 300px;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+.work .work-img:hover img {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.work .work-details {
+  width: 100%;
+}
+
+@media only screen and (min-width: 677px) {
+  .work {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .work .work-img {
+    width: 43%;
+  }
+  .work .work-details {
+    width: 57%;
+  }
 }
 
 /* Contact */
@@ -311,7 +326,7 @@ header p {
   list-style-type: none;
 }
 
-#contact p a {
+.contact a {
   word-break: break-all;
 }
 
