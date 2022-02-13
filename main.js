@@ -113,7 +113,7 @@ Date.prototype.addHours = function (h) {
 }
 
 // Letterboxd 
-const RSS_URL = "https://letterboxd.com/joshuasalazar/rss/";
+const RSS_URL = "https://cors-anywhere.herokuapp.com/https://letterboxd.com/joshuasalazar/rss/";
 
 $.ajax(RSS_URL, {
   accepts: {
