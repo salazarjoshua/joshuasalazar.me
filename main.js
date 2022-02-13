@@ -113,7 +113,7 @@ Date.prototype.addHours = function (h) {
 }
 
 // Letterboxd 
-const RSS_URL = "https://cors-anywhere.herokuapp.com/https://letterboxd.com/joshuasalazar/rss/";
+var RSS_URL = "letterboxd.xml";
 
 $.ajax(RSS_URL, {
   accepts: {
@@ -142,12 +142,12 @@ $.ajax(RSS_URL, {
         // Get film year
         $("span#film-year").html(el.find("letterboxd\\:filmYear").text());
         // Get film rating
-        $("p#film-rating").html(el.find("letterboxd\\:memberRating").text());
+        $("span#film-rating").html(getStars(el.find("letterboxd\\:memberRating").text()));
         // Add link
         $("#film")
           .attr("href", el.find("link").text())
           .attr("target", "_blank")
-          .attr("title", filmTitle + " (" + filmYear + ")");
+          .attr("title", filmTitle + " (" + el.find("letterboxd\\:filmYear").text() + ")");
       });
   },
   // Error
@@ -162,7 +162,7 @@ $.ajax(RSS_URL, {
 
     $("span#film-year").html("2019");
 
-    $("p#film-rating").html("5.0");
+    $("span#film-rating").html(getStars(5.0));
 
     $("#film")
           .attr("href", "https://letterboxd.com/joshuasalazar/film/happy-old-year/")
@@ -183,3 +183,25 @@ window.onmousemove = function (e) {
         tooltips[i].style.left = x;
     }
 };
+
+/** Film Rating */
+
+function getStars(rating) {
+  // Round to nearest half
+  rating = Math.round(rating * 2) / 2;
+  let output = [];
+
+  // Append all the filled whole stars
+  for (var i = rating; i >= 1; i--)
+    output.push('<i class="star star-fill" aria-hidden="true"></i>');
+
+  // If there is a half a star, append it
+  if (i == .5) output.push('<i class="star star-half" aria-hidden="true"></i>');
+
+  // Fill the empty stars
+  for (let i = (5 - rating); i >= 1; i--)
+    output.push('<i class="star star-blank" aria-hidden="true"></i>');
+
+  return output.join('');
+
+}

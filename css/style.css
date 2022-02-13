@@ -141,7 +141,6 @@ a:focus {
 
 .btn--green {
   background-color: #94CA42;
-  border: 2px solid transparent;
 }
 
 .btn--green:focus {
@@ -152,7 +151,6 @@ a:focus {
 
 .btn--blue {
   background-color: #4D9FEB;
-  border: 2px solid transparent;
 }
 
 .btn--blue:focus {
@@ -163,7 +161,6 @@ a:focus {
 
 .btn--violet {
   background-color: #6466E9;
-  border: 2px solid transparent;
 }
 
 .btn--violet:focus {
@@ -174,7 +171,6 @@ a:focus {
 
 .btn--pink {
   background-color: #D85888;
-  border: 2px solid transparent;
 }
 
 .btn--pink:focus {
@@ -305,12 +301,51 @@ header p {
   font-size: 0.875rem;
 }
 
+.tooltip {
+  position: relative;
+  text-decoration: underline;
+  -webkit-text-decoration-color: inherit;
+          text-decoration-color: inherit;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+
+.tooltip span {
+  display: none;
+  margin-left: -5rem;
+  margin-top: -7rem;
+  position: absolute;
+  z-index: 1000;
+  width: 10rem;
+}
+
+.tooltip span img {
+  aspect-ratio: 16 / 9;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 10rem;
+  border-radius: 4px;
+}
+
+.tooltip:hover span {
+  display: block;
+  position: fixed;
+  overflow: hidden;
+}
+
 .track {
   border-radius: 0.5rem;
 }
 
 .track:focus {
   outline-color: rgba(216, 88, 136, 0.5);
+}
+
+.track:focus-within #track-title,
+.track:focus-within #track-artist {
+  color: #D85888;
 }
 
 .film {
@@ -321,14 +356,25 @@ header p {
   outline-color: rgba(100, 102, 233, 0.5);
 }
 
+.film:focus-within #film-title {
+  color: #6466E9;
+}
+
+.film:focus-within .star {
+  background-color: #6466E9;
+}
+
 .track:hover #track-title,
 .track:hover #track-artist {
   color: #D85888;
 }
 
-.film:hover #film-title,
-.film:hover #film-rating {
+.film:hover #film-title {
   color: #6466E9;
+}
+
+.film:hover .star {
+  background-color: #6466E9;
 }
 
 .activity {
@@ -403,38 +449,40 @@ header p {
 }
 
 #film-rating {
-  font-size: 0.875rem;
-  font-weight: 400;
-  margin: 0;
-  -webkit-transition: color 0.15s ease-out;
-  transition: color 0.15s ease-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 21px;
 }
 
-.tooltip {
-  position: relative;
+.star {
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  background-color: #707070;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  -webkit-transition: background-color 0.15s ease-out;
+  transition: background-color 0.15s ease-out;
 }
 
-.tooltip span {
-  display: none;
-  margin-left: -5rem;
-  margin-top: -7rem;
-  position: absolute;
-  z-index: 1000;
-  width: 10rem;
+.star-fill {
+  -webkit-mask-image: url("/assets/star-fill.svg");
+  mask-image: url("/assets/star-fill.svg");
 }
 
-.tooltip span img {
-  aspect-ratio: 16 / 9;
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 10rem;
-  border-radius: 0.5rem;
+.star-half {
+  -webkit-mask-image: url("/assets/star-half.svg");
+  mask-image: url("/assets/star-half.svg");
 }
 
-.tooltip:hover span {
-  display: block;
-  position: fixed;
-  overflow: hidden;
+.star-blank {
+  -webkit-mask-image: url("/assets/star-blank.svg");
+  mask-image: url("/assets/star-blank.svg");
 }
 
 footer.wrapper {
