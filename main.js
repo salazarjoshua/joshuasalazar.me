@@ -21,27 +21,27 @@ var getSetLastFM = function () {
     success: function (resp) {
       var recentTrack = resp.recenttracks.track[0];
 
-      // Get track art
-      $("img#track-art").attr("src", recentTrack.image[2]["#text"]);
-      // Get Icon
+      var trackImg = recentTrack.image[2]["#text"];
+      var trackTimestamp = recentTrack.date["#text"];
+      var trackTitle = recentTrack.name;
+      var trackArtist = recentTrack.artist["#text"];
+      var trackLink = "recentTrack.url"
+
+      $("img#track-art").attr("src", trackImg);
       $("img#track-time__icon").attr("src", "/assets/music-playing.svg");
-      // Get timestamp
       if (recentTrack["@attr"]) {
         $("time#track-time__date").html("Now Playing");
       } else {
-        let newDate = new Date(recentTrack.date["#text"]);
+        let newDate = new Date(trackTimestamp);
         newDate.addHours(8);
         $("time#track-time__date").html(timeSince(newDate) + " ago");
       }
-      // Get track title
-      $("p#track-title").html(recentTrack.name);
-      // Get track artist
-      $("p#track-artist").html(recentTrack.artist["#text"]);
-      // Add link
+      $("p#track-title").html(trackTitle);
+      $("p#track-artist").html(trackArtist);
       $("#track")
-        .attr("href", recentTrack.url)
+        .attr("href", trackLink)
         .attr("target", "_blank")
-        .attr("title", recentTrack.name + " by " + recentTrack.artist["#text"]);
+        .attr("title", trackTitle + " by " + trackArtist);
     },
     // Error
     error: function (resp) {
@@ -112,80 +112,47 @@ Date.prototype.addHours = function (h) {
   return this;
 }
 
+
+
 // Letterboxd 
-var RSS_URL = "letterboxd.xml";
+fetch("https://jslbrss.herokuapp.com/")
+  .then(res => res.json())
+  .then(data => {
+    latestFilm = data
+    // console.log(latestFilm)
+    var filmArt = regex.exec(latestFilm.content)[1]
+    let newDate = new Date(latestFilm.pubDate);
+    var filmTitle = latestFilm.filmTitle;
+    var filmYear = latestFilm.filmYear;
+    var memberRating = latestFilm.memberRating;
+    var filmLink = latestFilm.link;
 
-$.ajax(RSS_URL, {
-  accepts: {
-    xml: "application/rss+xml"
-  },
-
-  dataType: "xml",
-
-  success: function (data) {
-    $(data)
-      .find("item")
-      .first()
-      .each(function () {
-        const el = $(this);
-
-        // Get film art
-        $("img#film-art").attr("src", regex.exec(el.find("description").text())[1]);
-        // Get Icon
-        $("img#film-time__icon").attr("src", "/assets/eye.svg");
-        // Get timestamp
-        let newDate = new Date(el.find("pubDate").text());
-        $("time#film-time__date").html(timeSince(newDate) + " ago");
-        // Get film title
-        var filmTitle = el.find("letterboxd\\:filmTitle").text();
-        $("p#film-title").html(filmTitle);
-        // Get film year
-        $("span#film-year").html(el.find("letterboxd\\:filmYear").text());
-        // Get film rating
-        $("span#film-rating").html(getStars(el.find("letterboxd\\:memberRating").text()));
-        // Add link
-        $("#film")
-          .attr("href", el.find("link").text())
-          .attr("target", "_blank")
-          .attr("title", filmTitle + " (" + el.find("letterboxd\\:filmYear").text() + ")");
-      });
-  },
-  // Error
-  error: function (resp) {
-    $("img#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
-
+    $("img#film-art").attr("src", filmArt);
     $("img#film-time__icon").attr("src", "/assets/eye.svg");
-
-    $("time#film-time__date").html("Rewatching");
-
+    $("time#film-time__date").html(timeSince(newDate) + " ago");
+    $("p#film-title").html(filmTitle);
+    $("span#film-year").html(filmYear);
+    $("span#film-rating").html(getStars(memberRating));
+    $("#film")
+      .attr("href", filmLink)
+      .attr("target", "_blank")
+      .attr("title", filmTitle + " (" + filmYear + ")");
+  })
+  .catch(error => {
+    $("img#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
+    $("img#film-time__icon").attr("src", "/assets/eye.svg");
+    $("time#film-time__date").html("CRYING RN");
     $("p#film-title").html("Happy Old Year");
-
     $("span#film-year").html("2019");
-
     $("span#film-rating").html(getStars(5.0));
-
     $("#film")
           .attr("href", "https://letterboxd.com/joshuasalazar/film/happy-old-year/")
           .attr("target", "_blank")
           .attr("title", "Happy Old Year (2019)");
-    
-  }
-});
+  })
 
-/** Tooltip *****/
-var tooltips = document.querySelectorAll('.tooltip span');
-
-window.onmousemove = function (e) {
-    var x = (e.clientX) + 'px',
-        y = (e.clientY) + 'px';
-    for (var i = 0; i < tooltips.length; i++) {
-        tooltips[i].style.top = y;
-        tooltips[i].style.left = x;
-    }
-};
 
 /** Film Rating */
-
 function getStars(rating) {
   // Round to nearest half
   rating = Math.round(rating * 2) / 2;
@@ -203,5 +170,22 @@ function getStars(rating) {
     output.push('<i class="star star-blank" aria-hidden="true"></i>');
 
   return output.join('');
-
 }
+
+/** Tooltip *****/
+var tooltips = document.querySelectorAll('.tooltip span');
+
+window.onmousemove = function (e) {
+  var x = (e.clientX) + 'px',
+    y = (e.clientY) + 'px';
+  for (var i = 0; i < tooltips.length; i++) {
+    tooltips[i].style.top = y;
+    tooltips[i].style.left = x;
+  }
+};
+
+
+
+
+
+
