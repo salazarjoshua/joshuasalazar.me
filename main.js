@@ -21,27 +21,26 @@ var getSetLastFM = function () {
     success: function (resp) {
       var recentTrack = resp.recenttracks.track[0];
 
-      var trackImg = recentTrack.image[2]["#text"];
-      var trackTimestamp = recentTrack.date["#text"];
-      var trackTitle = recentTrack.name;
-      var trackArtist = recentTrack.artist["#text"];
-      var trackLink = "recentTrack.url"
-
-      $("img#track-art").attr("src", trackImg);
+      // Get track art
+      $("img#track-art").attr("src", recentTrack.image[2]["#text"]);
+      // Get Icon
       $("img#track-time__icon").attr("src", "/assets/music-playing.svg");
+      // Get timestamp
       if (recentTrack["@attr"]) {
         $("time#track-time__date").html("Now Playing");
       } else {
-        let newDate = new Date(trackTimestamp);
-        newDate.addHours(8);
+        let newDate = new Date(recentTrack.date["#text"]).addHours(8);
         $("time#track-time__date").html(timeSince(newDate) + " ago");
       }
-      $("p#track-title").html(trackTitle);
-      $("p#track-artist").html(trackArtist);
+      // Get track title
+      $("p#track-title").html(recentTrack.name);
+      // Get track artist
+      $("p#track-artist").html(recentTrack.artist["#text"]);
+      // Add link
       $("#track")
-        .attr("href", trackLink)
+        .attr("href", recentTrack.url)
         .attr("target", "_blank")
-        .attr("title", trackTitle + " by " + trackArtist);
+        .attr("title", recentTrack.name + " by " + recentTrack.artist["#text"]);
     },
     // Error
     error: function (resp) {
@@ -60,7 +59,9 @@ var getSetLastFM = function () {
 };
 
 getSetLastFM();
-setInterval(getSetLastFM, 1000 * 1000);
+setInterval(getSetLastFM, 1000 * 30);
+
+
 
 // Convert time to minutes/hours/days ago
 var timeSince = function (date) {
