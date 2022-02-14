@@ -41,6 +41,11 @@ var getSetLastFM = function () {
         .attr("href", recentTrack.url)
         .attr("target", "_blank")
         .attr("title", recentTrack.name + " by " + recentTrack.artist["#text"]);
+
+        $(".track .load").removeClass("load");
+        $(".track .load--short").removeClass("load--short");
+        $(".track .load--medium").removeClass("load--medium");
+        $(".track .load--long").removeClass("load--long");
     },
     // Error
     error: function (resp) {
@@ -54,6 +59,11 @@ var getSetLastFM = function () {
         .attr("href", "https://open.spotify.com/track/308Ir17KlNdlrbVLHWhlLe?si=131db7e896074bc3")
         .attr("target", "_blank")
         .attr("title", "The Feels by TWICE");
+
+        $(".track .load").removeClass("load");
+        $(".track .load--short").removeClass("load--short");
+        $(".track .load--medium").removeClass("load--medium");
+        $(".track .load--long").removeClass("load--long");
     }
   });
 };
@@ -138,6 +148,11 @@ fetch("https://jslbrss.herokuapp.com/")
       .attr("href", filmLink)
       .attr("target", "_blank")
       .attr("title", filmTitle + " (" + filmYear + ")");
+
+      $(".film .load").removeClass("load");
+      $(".film .load--short").removeClass("load--short");
+      $(".film .load--medium").removeClass("load--medium");
+      $(".film .load--long").removeClass("load--long");
   })
   .catch(error => {
     $("img#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
@@ -147,9 +162,14 @@ fetch("https://jslbrss.herokuapp.com/")
     $("span#film-year").html("2019");
     $("span#film-rating").html(getStars(5.0));
     $("#film")
-          .attr("href", "https://letterboxd.com/joshuasalazar/film/happy-old-year/")
-          .attr("target", "_blank")
-          .attr("title", "Happy Old Year (2019)");
+      .attr("href", "https://letterboxd.com/joshuasalazar/film/happy-old-year/")
+      .attr("target", "_blank")
+      .attr("title", "Happy Old Year (2019)");
+
+      $(".film .load").removeClass("load");
+      $(".film .load--short").removeClass("load--short");
+      $(".film .load--medium").removeClass("load--medium");
+      $(".film .load--long").removeClass("load--long");
   })
 
 

@@ -397,6 +397,8 @@ header p {
   border-radius: 0.5rem;
   background: #F5F4F5;
   aspect-ratio: 1/1;
+  -webkit-animation: pulse 1s infinite ease-in-out;
+          animation: pulse 1s infinite ease-in-out;
 }
 
 .time {
@@ -446,6 +448,8 @@ header p {
   border-radius: 0.5rem;
   background: #F5F4F5;
   aspect-ratio: 1/1.5;
+  -webkit-animation: pulse 1s infinite ease-in-out;
+          animation: pulse 1s infinite ease-in-out;
 }
 
 #film-rating {
@@ -483,6 +487,51 @@ header p {
 .star-blank {
   -webkit-mask-image: url("/assets/star-blank.svg");
   mask-image: url("/assets/star-blank.svg");
+}
+
+.load {
+  background-color: #F5F4F5;
+  min-height: 22px;
+  border: 2px solid #FFFFFF;
+  border-radius: 2px;
+  -webkit-animation: pulse 1s infinite ease-in-out;
+          animation: pulse 1s infinite ease-in-out;
+}
+
+.load--short {
+  width: 40%;
+}
+
+.load--medium {
+  width: 50%;
+}
+
+.load--long {
+  width: 75%;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    background: rgba(113, 113, 121, 0.1);
+  }
+  50% {
+    background: rgba(113, 113, 121, 0.2);
+  }
+  100% {
+    background: rgba(113, 113, 121, 0.1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    background: rgba(113, 113, 121, 0.1);
+  }
+  50% {
+    background: rgba(113, 113, 121, 0.2);
+  }
+  100% {
+    background: rgba(113, 113, 121, 0.1);
+  }
 }
 
 footer.wrapper {

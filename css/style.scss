@@ -337,6 +337,7 @@ header {
     border-radius: $radius;
     background: $c-light-2;
     aspect-ratio: 1/1;
+    animation: pulse 1s infinite ease-in-out; 
 }
 
 .time {
@@ -375,6 +376,7 @@ header {
     border-radius: $radius;
     background: $c-light-2;
     aspect-ratio: 1/1.5;
+    animation: pulse 1s infinite ease-in-out;
 }
 
 #film-rating {
@@ -408,6 +410,42 @@ header {
         mask-image: url("/assets/star-blank.svg");
     }
 }
+
+
+.load {
+    background-color: $c-light-2;
+    min-height: 22px;
+    border: 2px solid $c-light-1;
+    border-radius: 2px;
+    animation: pulse 1s infinite ease-in-out;
+
+    &--short {
+        width: 40%;
+    }
+
+    &--medium {
+        width: 50%;
+    }
+
+    &--long {
+        width: 75%;
+    }
+}
+
+
+@keyframes pulse
+{
+  0%{
+    background: rgba($color: #717179, $alpha: 0.1);
+  }
+  50%{
+    background: rgba($color: #717179, $alpha: 0.2);
+  }
+  100%{
+    background: rgba($color: #717179, $alpha: 0.1);
+  }
+}
+
 
 footer.wrapper {
     padding-top: 5rem;
