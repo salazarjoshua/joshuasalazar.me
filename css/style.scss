@@ -455,8 +455,37 @@ header {
 
 
 footer.wrapper {
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
+
+.rotate--svg {
+    animation: rotate-360 4s ease-in-out infinite 1s;
+    transform-origin: 50% 50%;
+}
+
+
+.rotate--text {
+    margin-left: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    display: inline-block;
+    animation: rotate-360 2s ease-in-out infinite 1s;
+    vertical-align: middle;
+}
+
+
+@keyframes rotate-360 {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
 
 @media only screen and (max-width: 622px) {
 
@@ -464,9 +493,8 @@ footer.wrapper {
         font-size: 15px;
     }
 
-    footer {
-        strong {
-            display: block;
-        }
+    main {
+        gap: 4rem;
     }
 }
+
