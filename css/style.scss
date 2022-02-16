@@ -106,7 +106,7 @@ a {
 
     &--icon {
         display: flex;
-        gap: 0.25rem    
+        gap: 0.25rem;    
     }
 
     &--green {
@@ -139,6 +139,13 @@ a {
             outline: none;
              box-shadow: 0 0 0 0.20rem rgba($color: $c-pink, $alpha: 0.5);
         }
+    }
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        min-width: 1.5rem;
+        min-height: 1.5rem;
     }
 }
 
@@ -182,7 +189,7 @@ header {
         align-items: center;
 
         img {
-            max-width: 56px;
+            width: 3.5rem;
         }
 
         p {

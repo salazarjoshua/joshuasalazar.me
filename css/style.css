@@ -179,6 +179,13 @@ a:focus {
           box-shadow: 0 0 0 0.2rem rgba(216, 88, 136, 0.5);
 }
 
+.btn svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+}
+
 .text-inside {
   font-size: 0.75rem;
   padding: 2px 4px;
@@ -234,7 +241,7 @@ header .intro {
 }
 
 header .intro img {
-  max-width: 56px;
+  width: 3.5rem;
 }
 
 header .intro p {
