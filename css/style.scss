@@ -92,7 +92,8 @@ a {
     transition: text-decoration-color 0.15s linear;
 
     &:hover,
-    &:focus, &:focus-visible {
+    &:focus,
+    &:focus-visible {
         text-decoration-color: transparent;
     }
 }
@@ -106,38 +107,38 @@ a {
 
     &--icon {
         display: flex;
-        gap: 0.25rem;    
+        gap: 0.25rem;
     }
 
     &--green {
         background-color: $c-green;
         &:focus {
             outline: none;
-             box-shadow: 0 0 0 0.20rem rgba($color: $c-green, $alpha: 0.5);
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-green, $alpha: 0.5);
         }
     }
-    
+
     &--blue {
         background-color: $c-blue;
-          &:focus {
+        &:focus {
             outline: none;
-             box-shadow: 0 0 0 0.20rem rgba($color: $c-blue, $alpha: 0.5);
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-blue, $alpha: 0.5);
         }
     }
-    
+
     &--violet {
         background-color: $c-violet;
-          &:focus {
+        &:focus {
             outline: none;
-             box-shadow: 0 0 0 0.20rem rgba($color: $c-violet, $alpha: 0.5);
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-violet, $alpha: 0.5);
         }
     }
-    
+
     &--pink {
         background-color: $c-pink;
-          &:focus {
+        &:focus {
             outline: none;
-             box-shadow: 0 0 0 0.20rem rgba($color: $c-pink, $alpha: 0.5);
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-pink, $alpha: 0.5);
         }
     }
 
@@ -158,6 +159,9 @@ a {
     color: $c-dark-2;
 }
 
+.hide {
+    opacity: 0;
+}
 
 /** MAIN *****/
 
@@ -251,7 +255,7 @@ header {
 }
 
 .tooltip {
-    position:relative;
+    position: relative;
     text-decoration: underline;
     text-decoration-color: inherit;
     text-decoration-style: dotted;
@@ -274,9 +278,9 @@ header {
     }
 
     &:hover span {
-        display:block;
-        position:fixed;
-        overflow:hidden;
+        display: block;
+        position: fixed;
+        overflow: hidden;
     }
 }
 
@@ -291,7 +295,7 @@ header {
         #track-title,
         #track-artist {
             color: $c-pink;
-        }    
+        }
     }
 }
 
@@ -308,7 +312,7 @@ header {
         }
         .star {
             background-color: $c-violet;
-        }      
+        }
     }
 }
 
@@ -344,7 +348,7 @@ header {
     border-radius: $radius;
     background: $c-light-2;
     aspect-ratio: 1/1;
-    animation: pulse 1s infinite ease-in-out; 
+    animation: pulse 1s infinite ease-in-out;
 }
 
 .time {
@@ -396,7 +400,7 @@ header {
 .star {
     -webkit-mask-size: cover;
     mask-size: cover;
-    background-color: #707070;
+    background-color: $c-dark-2;
     height: 16px;
     width: 16px;
     display: inline-block;
@@ -418,7 +422,6 @@ header {
     }
 }
 
-
 .load {
     background-color: $c-light-2;
     min-height: 22px;
@@ -439,20 +442,17 @@ header {
     }
 }
 
-
-@keyframes pulse
-{
-  0%{
-    background: rgba($color: #717179, $alpha: 0.1);
-  }
-  50%{
-    background: rgba($color: #717179, $alpha: 0.2);
-  }
-  100%{
-    background: rgba($color: #717179, $alpha: 0.1);
-  }
+@keyframes pulse {
+    0% {
+        background: rgba($color: #717179, $alpha: 0.1);
+    }
+    50% {
+        background: rgba($color: #717179, $alpha: 0.2);
+    }
+    100% {
+        background: rgba($color: #717179, $alpha: 0.1);
+    }
 }
-
 
 footer.wrapper {
     padding-top: 4rem;
@@ -462,7 +462,6 @@ footer.wrapper {
     animation: rotate-360 4s ease-in-out infinite 1s;
     transform-origin: 50% 50%;
 }
-
 
 .rotate--text {
     margin-left: 0.25rem;
@@ -474,7 +473,6 @@ footer.wrapper {
     vertical-align: middle;
 }
 
-
 @keyframes rotate-360 {
     0% {
         transform: rotate(0deg);
@@ -485,10 +483,9 @@ footer.wrapper {
     100% {
         transform: rotate(360deg);
     }
-  }
+}
 
 @media only screen and (max-width: 622px) {
-
     html {
         font-size: 15px;
     }
@@ -497,4 +494,3 @@ footer.wrapper {
         gap: 4rem;
     }
 }
-

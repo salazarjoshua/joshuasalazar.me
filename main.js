@@ -149,10 +149,11 @@ fetch("https://jslbrss.herokuapp.com/")
       .attr("target", "_blank")
       .attr("title", filmTitle + " (" + filmYear + ")");
 
-      $(".film .load").removeClass("load");
-      $(".film .load--short").removeClass("load--short");
-      $(".film .load--medium").removeClass("load--medium");
-      $(".film .load--long").removeClass("load--long");
+    $("span#film-year").removeClass("hide");
+    $(".film .load").removeClass("load");
+    $(".film .load--short").removeClass("load--short");
+    $(".film .load--medium").removeClass("load--medium");
+    $(".film .load--long").removeClass("load--long");
   })
   .catch(error => {
     $("img#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
@@ -166,10 +167,11 @@ fetch("https://jslbrss.herokuapp.com/")
       .attr("target", "_blank")
       .attr("title", "Happy Old Year (2019)");
 
-      $(".film .load").removeClass("load");
-      $(".film .load--short").removeClass("load--short");
-      $(".film .load--medium").removeClass("load--medium");
-      $(".film .load--long").removeClass("load--long");
+    $("span#film-year").removeClass("hide");
+    $(".film .load").removeClass("load");
+    $(".film .load--short").removeClass("load--short");
+    $(".film .load--medium").removeClass("load--medium");
+    $(".film .load--long").removeClass("load--long");
   })
 
 
