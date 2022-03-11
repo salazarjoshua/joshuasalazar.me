@@ -1,0 +1,88 @@
+/** TYPOGRAPHY *****/
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.text-md {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+.text-xxl {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+p + p {
+    margin-top: 1rem;
+}
+
+strong,
+b {
+    font-weight: 600;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    gap: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:focus {
+        outline-offset: 2px;
+        outline-color: rgba($color: $c-pink, $alpha: 0.5);
+    }
+}
+
+button {
+    border: 0;
+    line-height: 20px;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba($color: $c-pink, $alpha: 0.25);
+    }
+}
+
+.link {
+    text-decoration: underline;
+    text-decoration-color: inherit;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    transition: text-decoration-color 0.15s linear;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+        text-decoration-color: transparent;
+    }
+}

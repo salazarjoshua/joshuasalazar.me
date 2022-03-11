@@ -1,0 +1,109 @@
+/** COLOR *****/
+.c-green {
+    color: $c-green;
+
+    &:focus {
+        outline-color: rgba($color: $c-green, $alpha: 0.5);
+    }
+}
+
+.c-blue {
+    color: $c-blue;
+
+    &:focus {
+        outline-color: rgba($color: $c-blue, $alpha: 0.5);
+    }
+}
+
+.c-violet {
+    color: $c-violet;
+
+    &:focus {
+        outline-color: rgba($color: $c-violet, $alpha: 0.5);
+    }
+}
+
+.c-pink {
+    color: $c-pink;
+
+    &:focus {
+        outline-color: rgba($color: $c-pink, $alpha: 0.5);
+    }
+}
+
+.c-dark-2 {
+    color: $c-dark-2;
+}
+
+.btn {
+    padding: 0.5rem 0.75rem;
+    border-radius: $radius;
+    color: white;
+    font-weight: 600;
+
+    &--icon {
+        display: flex;
+        gap: 0.25rem;
+    }
+
+    &--green {
+        background-color: $c-green;
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-green, $alpha: 0.5);
+        }
+    }
+
+    &--blue {
+        background-color: $c-blue;
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-blue, $alpha: 0.5);
+        }
+    }
+
+    &--violet {
+        background-color: $c-violet;
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-violet, $alpha: 0.5);
+        }
+    }
+
+    &--pink {
+        background-color: $c-pink;
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-pink, $alpha: 0.5);
+        }
+    }
+
+    &--secondary {
+        background-color: $c-light-2;
+        color: $c-dark-2;
+    }
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+        min-width: 1.5rem;
+        min-height: 1.5rem;
+    }
+}
+
+.text-inside {
+    font-size: 0.75rem;
+    padding: 2px 4px;
+    background-color: $c-light-2;
+    border-radius: 0.2rem;
+    font-weight: 600;
+    color: $c-dark-2;
+}
+
+.hide {
+    opacity: 0;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}

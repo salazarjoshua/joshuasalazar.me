@@ -1,7 +1,7 @@
 
 # [joshuasalazar.me](https://joshuasalazar.me/)
 
-🤹 Personal website and portfolio (version 3)
+🤹 Personal website of Joshua Salazar
 
 
 - 📚 Built with HTML, SCSS, Javascript, and jQuery

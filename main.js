@@ -1,6 +1,6 @@
-var regex = /<img.*?src="(.*?)"/;
+const regex = /<img.*?src="(.*?)"/;
 
-var lastfmData = {
+const lastfmData = {
   baseURL:
     "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=",
   user: "eyebr0w",
@@ -8,7 +8,7 @@ var lastfmData = {
   additional: "&format=json&limit=1"
 };
 
-var getSetLastFM = function () {
+const getSetLastFM = function () {
   $.ajax({
     type: "GET",
     url:
@@ -19,18 +19,19 @@ var getSetLastFM = function () {
       lastfmData.additional,
     dataType: "json",
     success: function (resp) {
-      var recentTrack = resp.recenttracks.track[0];
-
+      const recentTrack = resp.recenttracks.track[0];
+      
       // Get track art
       $("img#track-art").attr("src", recentTrack.image[2]["#text"]);
-      // Get Icon
-      $("img#track-time__icon").attr("src", "/assets/music-playing.svg");
+
       // Get timestamp
       if (recentTrack["@attr"]) {
-        $("time#track-time__date").html("Now Playing");
+        $("#track-time__date").html("Now Playing");
+        $(".track-time__icon").addClass("playing");
       } else {
         let newDate = new Date(recentTrack.date["#text"]).addHours(8);
-        $("time#track-time__date").html(timeSince(newDate) + " ago");
+        $("#track-time__date").html(timeSince(newDate) + " ago");
+        $(".track-time__icon").removeClass("playing");
       }
       // Get track title
       $("p#track-title").html(recentTrack.name);
@@ -39,39 +40,39 @@ var getSetLastFM = function () {
       // Add link
       $("#track")
         .attr("href", recentTrack.url)
-        .attr("target", "_blank")
         .attr("title", recentTrack.name + " by " + recentTrack.artist["#text"]);
 
-        $(".track .load").removeClass("load");
-        $(".track .load--short").removeClass("load--short");
-        $(".track .load--medium").removeClass("load--medium");
-        $(".track .load--long").removeClass("load--long");
+      // Hide Loading
+      $(".track-time__icon").removeClass("hide");
+      $(".track .load").removeClass("load");
+      $(".track .load--short").removeClass("load--short");
+      $(".track .load--medium").removeClass("load--medium");
+      $(".track .load--long").removeClass("load--long");
     },
     // Error
     error: function (resp) {
       $("img#track-art").attr("src", "https://lastfm.freetls.fastly.net/i/u/770x0/552af1ac0196834b7e283d70e23a8863.jpg#552af1ac0196834b7e283d70e23a8863")
         .attr("target", "_blank");
       $("img#track-time__icon").attr("src", "/assets/music-playing.svg");
-      $("time#track-time__date").html("BOYABOYABOYANOW");
+      $("#track-time__date").html("BOYABOYABOYANOW");
       $("p#track-title").html("The Feels");
       $("p#track-artist").html("TWICE");
       $("#track")
         .attr("href", "https://open.spotify.com/track/308Ir17KlNdlrbVLHWhlLe?si=131db7e896074bc3")
-        .attr("target", "_blank")
         .attr("title", "The Feels by TWICE");
 
-        $(".track .load").removeClass("load");
-        $(".track .load--short").removeClass("load--short");
-        $(".track .load--medium").removeClass("load--medium");
-        $(".track .load--long").removeClass("load--long");
+      // Hide Loading
+      $(".track-time__icon").removeClass("hide");
+      $(".track .load").removeClass("load");
+      $(".track .load--short").removeClass("load--short");
+      $(".track .load--medium").removeClass("load--medium");
+      $(".track .load--long").removeClass("load--long");
     }
   });
 };
 
 getSetLastFM();
-setInterval(getSetLastFM, 1000 * 30);
-
-
+setInterval(getSetLastFM, 1000 * 10);
 
 // Convert time to minutes/hours/days ago
 var timeSince = function (date) {
@@ -117,13 +118,11 @@ var timeSince = function (date) {
   return interval + ' ' + intervalType;
 };
 
-// Convert to GMT+8
+// Add hours
 Date.prototype.addHours = function (h) {
   this.setHours(this.getHours() + h);
   return this;
 }
-
-
 
 // Letterboxd 
 fetch("https://jslbrss.herokuapp.com/")
@@ -131,43 +130,41 @@ fetch("https://jslbrss.herokuapp.com/")
   .then(data => {
     latestFilm = data
     // console.log(latestFilm)
-    var filmArt = regex.exec(latestFilm.content)[1]
+    let filmArt = regex.exec(latestFilm.content)[1];
     let newDate = new Date(latestFilm.pubDate);
-    var filmTitle = latestFilm.filmTitle;
-    var filmYear = latestFilm.filmYear;
-    var memberRating = latestFilm.memberRating;
-    var filmLink = latestFilm.link;
+    let filmTitle = latestFilm.filmTitle;
+    let filmYear = latestFilm.filmYear;
+    let memberRating = latestFilm.memberRating;
+    let filmLink = latestFilm.link;
 
-    $("img#film-art").attr("src", filmArt);
-    $("img#film-time__icon").attr("src", "/assets/eye.svg");
-    $("time#film-time__date").html(timeSince(newDate) + " ago");
-    $("p#film-title").html(filmTitle);
-    $("span#film-year").html(filmYear);
-    $("span#film-rating").html(getStars(memberRating));
+    $("#film-art").attr("src", filmArt);
+    $("#film-time__icon").attr("src", "/assets/eye.svg");
+    $("#film-time__date").html(timeSince(newDate) + " ago");
+    $("#film-title").html(filmTitle);
+    $("#film-year").html(filmYear);
+    $("#film-rating").html(getStars(memberRating));
     $("#film")
       .attr("href", filmLink)
-      .attr("target", "_blank")
       .attr("title", filmTitle + " (" + filmYear + ")");
 
-    $("span#film-year").removeClass("hide");
+    $("#film-year").removeClass("hide");
     $(".film .load").removeClass("load");
     $(".film .load--short").removeClass("load--short");
     $(".film .load--medium").removeClass("load--medium");
     $(".film .load--long").removeClass("load--long");
   })
   .catch(error => {
-    $("img#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
-    $("img#film-time__icon").attr("src", "/assets/eye.svg");
-    $("time#film-time__date").html("CRYING RN");
-    $("p#film-title").html("Happy Old Year");
-    $("span#film-year").html("2019");
-    $("span#film-rating").html(getStars(5.0));
+    $("#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
+    $("#film-time__icon").attr("src", "/assets/eye.svg");
+    $("#film-time__date").html("CRYING RN");
+    $("#film-title").html("Happy Old Year");
+    $("#film-year").html("2019");
+    $("#film-rating").html(getStars(5.0));
     $("#film")
       .attr("href", "https://letterboxd.com/joshuasalazar/film/happy-old-year/")
-      .attr("target", "_blank")
       .attr("title", "Happy Old Year (2019)");
 
-    $("span#film-year").removeClass("hide");
+    $("#film-year").removeClass("hide");
     $(".film .load").removeClass("load");
     $(".film .load--short").removeClass("load--short");
     $(".film .load--medium").removeClass("load--medium");
@@ -196,19 +193,102 @@ function getStars(rating) {
 }
 
 /** Tooltip *****/
-var tooltips = document.querySelectorAll('.tooltip span');
+const tooltips = document.querySelectorAll('.tooltip span');
 
 window.onmousemove = function (e) {
-  var x = (e.clientX) + 'px',
+  let x = (e.clientX) + 'px',
     y = (e.clientY) + 'px';
-  for (var i = 0; i < tooltips.length; i++) {
+  for (let i = 0; i < tooltips.length; i++) {
     tooltips[i].style.top = y;
     tooltips[i].style.left = x;
   }
 };
 
 
+// Modal 
+
+const openWarning = document.querySelectorAll('.warning');
+const dialog = document.querySelector('.dialog');
+const cancelBtn = document.querySelector('.dialog__cancel');
+const agreeBtn = document.querySelector('.dialog__agree');
+const body = document.querySelector('body');
+let previousActiveElement;
 
 
+// Open Warning
+
+function handleOpenWarning(event) {
+  event.preventDefault();
+  
+  const button = event.currentTarget;
+  // grab anchor link
+  const link = button.closest('.warning');
+
+    // change paragraph
+    const dialogText = document.querySelector('.dialog p');
+    console.log(dialogText);
+    dialogText.innerHTML = `The following film contains <span class="c-pink"><b>${link.dataset.warning}</b></span>. Do you wish to proceed?`
+  
+  agreeBtn.href = link.href;
+  // open modal
+  dialog.classList.add('open');
+  body.classList.add('overflow-hidden');
+  // change focus
+  previousActiveElement = document.activeElement;
+  cancelBtn.focus();
+}
+
+openWarning.forEach((button) => button.addEventListener('click', handleOpenWarning));
+
+// Close Warning
+function closeWarning() {
+  dialog.classList.remove('open');
+  body.classList.remove('overflow-hidden');
+  previousActiveElement.focus();
+}
+
+dialog.addEventListener('click', (event) => {
+  const isOutside = !event.target.closest('.dialog__inner');
+  if (isOutside) {
+          closeWarning();
+  }
+});
+
+window.addEventListener('keydown', (event) => {
+  const isOpen = dialog.classList.contains('open');
+  if (event.key === 'Escape' && isOpen) {
+          closeWarning();
+  }
+});
+
+cancelBtn.addEventListener('click', closeWarning);
+agreeBtn.addEventListener('click', closeWarning);
+
+// add all the elements inside modal which you want to make focusable
+const  focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
 
+const focusableContent = dialog.querySelectorAll(focusableElements);
+const firstFocusableElement = dialog.querySelectorAll(focusableElements)[0];
+const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+
+document.addEventListener('keydown', function(e) {
+  let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+  if (!isTabPressed) {
+    return;
+  }
+
+  if (e.shiftKey) { // if shift key pressed for shift + tab combination
+    if (document.activeElement === firstFocusableElement) {
+      lastFocusableElement.focus(); // add focus for the last focusable element
+      e.preventDefault();
+    }
+  } else { // if tab key is pressed
+    if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+      firstFocusableElement.focus(); // add focus for the first focusable element
+      e.preventDefault();
+    }
+  }
+});
