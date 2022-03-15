@@ -1,5 +1,3 @@
-const regex = /<img.*?src="(.*?)"/;
-
 const lastfmData = {
   baseURL:
     "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=",
@@ -123,6 +121,8 @@ Date.prototype.addHours = function (h) {
   this.setHours(this.getHours() + h);
   return this;
 }
+
+const regex = /<img.*?src="(.*?)"/;
 
 // Letterboxd 
 fetch("https://jslbrss.herokuapp.com/")
