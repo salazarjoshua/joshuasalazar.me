@@ -35,6 +35,7 @@ body {
 /** TYPOGRAPHY *****/
 .text-xs {
   font-size: 0.75rem;
+  font-weight: 500;
 }
 
 .text-sm {
@@ -126,6 +127,36 @@ button:focus {
           text-decoration-color: transparent;
 }
 
+.hide {
+  opacity: 0;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/** FLEX AND GRID *****/
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.gap-xs {
+  gap: 0.25rem;
+}
+
+.gap-md {
+  gap: 1rem;
+}
+
 /** COLOR *****/
 .c-green {
   color: #94CA42;
@@ -163,11 +194,13 @@ button:focus {
   color: #717179;
 }
 
+/** BUTTONS *****/
 .btn {
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   color: white;
   font-weight: 600;
+  text-align: center;
 }
 
 .btn--icon {
@@ -222,6 +255,12 @@ button:focus {
   color: #717179;
 }
 
+.btn--alt {
+  padding: 0.5rem;
+  background-color: #F5F4F5;
+  color: #717179;
+}
+
 .btn svg {
   width: 1.5rem;
   height: 1.5rem;
@@ -236,14 +275,6 @@ button:focus {
   border-radius: 0.2rem;
   font-weight: 600;
   color: #717179;
-}
-
-.hide {
-  opacity: 0;
-}
-
-.overflow-hidden {
-  overflow: hidden;
 }
 
 /** MAIN *****/
@@ -428,85 +459,6 @@ header p {
   overflow: hidden;
 }
 
-.track {
-  border-radius: 0.5rem;
-}
-
-.track:focus {
-  outline-color: rgba(216, 88, 136, 0.5);
-}
-
-.track:focus-within #track-title,
-.track:focus-within #track-artist {
-  color: #D85888;
-}
-
-.film {
-  border-radius: 0.5rem;
-}
-
-.film:focus {
-  outline-color: rgba(100, 102, 233, 0.5);
-}
-
-.film:focus-within #film-title {
-  color: #6466E9;
-}
-
-.film:focus-within .star {
-  background-color: #6466E9;
-}
-
-.track:hover #track-title,
-.track:hover #track-artist {
-  color: #D85888;
-}
-
-.film:hover #film-title {
-  color: #6466E9;
-}
-
-.film:hover .star {
-  background-color: #6466E9;
-}
-
-.activity {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: auto 1fr;
-      grid-template-columns: auto 1fr;
-  gap: 0.75rem;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.activity time {
-  font-weight: 600;
-}
-
-#track-art {
-  width: 5rem;
-  border-radius: 0.5rem;
-  background: #F5F4F5;
-  aspect-ratio: 1/1;
-  -webkit-animation: pulse 1s infinite ease-in-out;
-          animation: pulse 1s infinite ease-in-out;
-}
-
-.time {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.25rem;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
 .track-time__icon.playing rect:nth-child(1) {
   -webkit-animation: playIcon-1 1s infinite linear alternate;
           animation: playIcon-1 1s infinite linear alternate;
@@ -671,7 +623,82 @@ header p {
   }
 }
 
-.title-container {
+.track {
+  border-radius: 0.5rem;
+}
+
+.track:focus {
+  outline-color: rgba(216, 88, 136, 0.5);
+}
+
+.track:focus-within #track-title,
+.track:focus-within #track-artist {
+  color: #D85888;
+}
+
+.film {
+  border-radius: 0.5rem;
+}
+
+.film:focus {
+  outline-color: rgba(100, 102, 233, 0.5);
+}
+
+.film:focus-within #film-title {
+  color: #6466E9;
+}
+
+.film:focus-within .star {
+  background-color: #6466E9;
+}
+
+.track:hover #track-title,
+.track:hover #track-artist {
+  color: #D85888;
+}
+
+.film:hover #film-title {
+  color: #6466E9;
+}
+
+.film:hover .star {
+  background-color: #6466E9;
+}
+
+.activity {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 1fr;
+      grid-template-columns: auto 1fr;
+  gap: 0.75rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.img--square {
+  width: 5rem;
+  border-radius: 0.5rem;
+  background: #F5F4F5;
+  aspect-ratio: 1/1;
+  -webkit-animation: pulse 1s infinite ease-in-out;
+          animation: pulse 1s infinite ease-in-out;
+}
+
+.img--sm {
+  width: 3rem;
+}
+
+.img--portrait {
+  width: 3.333rem;
+  border-radius: 0.5rem;
+  background: #F5F4F5;
+  aspect-ratio: 1/1.5;
+  -webkit-animation: pulse 1s infinite ease-in-out;
+          animation: pulse 1s infinite ease-in-out;
+}
+
+.text-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto 1fr;
@@ -683,31 +710,11 @@ header p {
   min-width: 0;
 }
 
-.title-truncate {
+.text-truncate {
   font-weight: 600;
-  -webkit-transition: color 0.15s ease-out, -webkit-text-decoration-color 0.15s linear;
-  transition: color 0.15s ease-out, -webkit-text-decoration-color 0.15s linear;
-  transition: color 0.15s ease-out, text-decoration-color 0.15s linear;
-  transition: color 0.15s ease-out, text-decoration-color 0.15s linear, -webkit-text-decoration-color 0.15s linear;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-#track-artist {
-  font-size: 0.875rem;
-  font-weight: 400;
-  -webkit-transition: color 0.15s ease-out;
-  transition: color 0.15s ease-out;
-}
-
-#film-art {
-  width: 3.333rem;
-  border-radius: 0.5rem;
-  background: #F5F4F5;
-  aspect-ratio: 1/1.5;
-  -webkit-animation: pulse 1s infinite ease-in-out;
-          animation: pulse 1s infinite ease-in-out;
 }
 
 #film-rating {
@@ -902,5 +909,75 @@ footer.wrapper {
 
 .dialog.open {
   visibility: visible;
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  margin: 0.25rem 0 1rem;
+}
+
+.grid-3070 {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 0.75fr 1fr;
+      grid-template-columns: 0.75fr 1fr;
+  gap: 1.5rem;
+}
+
+.grid-buttons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.grid-buttons .btn {
+  font-size: 14px;
+}
+
+.grid-details {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content auto;
+      grid-template-columns: -webkit-max-content auto;
+      grid-template-columns: max-content auto;
+  gap: 0.5rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.grid-details p + p {
+  margin: 0;
+}
+
+@media only screen and (max-width: 699px) {
+  figure {
+    max-width: 200px;
+  }
+  .grid-3070 {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.photocards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(calc(3.5rem), 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(calc(3.5rem), 1fr));
+}
+
+.photocard {
+  aspect-ratio: 55/86;
+  border-radius: 0.25rem;
+}
+
+option {
+  text-transform: capitalize;
 }
 /*# sourceMappingURL=style.css.map */

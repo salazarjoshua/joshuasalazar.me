@@ -165,7 +165,7 @@ fetch("https://jslbrss.herokuapp.com/")
       .attr("title", "Happy Old Year (2019)");
 
     $("#film-year").removeClass("hide");
-    $(".film .load").removeClass("load");
+    $(".film > .load, .load--short, .load--medium, .load--long").removeClass("load");
     $(".film .load--short").removeClass("load--short");
     $(".film .load--medium").removeClass("load--medium");
     $(".film .load--long").removeClass("load--long");
@@ -292,3 +292,4 @@ document.addEventListener('keydown', function(e) {
     }
   }
 });
+

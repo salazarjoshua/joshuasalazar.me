@@ -1,3 +1,28 @@
+.hide {
+    opacity: 0;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+/** FLEX AND GRID *****/
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.gap-xs {
+    gap: 0.25rem;
+}
+
+.gap-md {
+    gap: 1rem;
+}
+
 /** COLOR *****/
 .c-green {
     color: $c-green;
@@ -35,11 +60,14 @@
     color: $c-dark-2;
 }
 
+/** BUTTONS *****/
+
 .btn {
     padding: 0.5rem 0.75rem;
     border-radius: $radius;
     color: white;
     font-weight: 600;
+    text-align: center;
 
     &--icon {
         display: flex;
@@ -83,6 +111,12 @@
         color: $c-dark-2;
     }
 
+    &--alt {
+        padding: 0.5rem;
+        background-color: $c-light-2;
+        color: $c-dark-2;
+    }
+
     svg {
         width: 1.5rem;
         height: 1.5rem;
@@ -98,12 +132,4 @@
     border-radius: 0.2rem;
     font-weight: 600;
     color: $c-dark-2;
-}
-
-.hide {
-    opacity: 0;
-}
-
-.overflow-hidden {
-    overflow: hidden;
 }

@@ -153,82 +153,7 @@ header {
     }
 }
 
-.track {
-    border-radius: $radius;
-
-    &:focus {
-        outline-color: rgba($color: $c-pink, $alpha: 0.5);
-    }
-
-    &:focus-within {
-        #track-title,
-        #track-artist {
-            color: $c-pink;
-        }
-    }
-}
-
-.film {
-    border-radius: $radius;
-
-    &:focus {
-        outline-color: rgba($color: $c-violet, $alpha: 0.5);
-    }
-
-    &:focus-within {
-        #film-title {
-            color: $c-violet;
-        }
-        .star {
-            background-color: $c-violet;
-        }
-    }
-}
-
-.track:hover {
-    #track-title,
-    #track-artist {
-        color: $c-pink;
-    }
-}
-
-.film:hover {
-    #film-title {
-        color: $c-violet;
-    }
-    .star {
-        background-color: $c-violet;
-    }
-}
-
-.activity {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.75rem;
-    align-items: center;
-
-    time {
-        font-weight: 600;
-    }
-}
-
-#track-art {
-    width: 5rem;
-    border-radius: $radius;
-    background: $c-light-2;
-    aspect-ratio: 1/1;
-    animation: pulse 1s infinite ease-in-out;
-}
-
-.time {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
+// ACTIVITY
 .track-time__icon.playing {
     rect:nth-child(1) {
         animation: playIcon-1 1s infinite linear alternate;
@@ -327,7 +252,82 @@ header {
     }
 }
 
-.title-container {
+.track {
+    border-radius: $radius;
+
+    &:focus {
+        outline-color: rgba($color: $c-pink, $alpha: 0.5);
+    }
+
+    &:focus-within {
+        #track-title,
+        #track-artist {
+            color: $c-pink;
+        }
+    }
+}
+
+.film {
+    border-radius: $radius;
+
+    &:focus {
+        outline-color: rgba($color: $c-violet, $alpha: 0.5);
+    }
+
+    &:focus-within {
+        #film-title {
+            color: $c-violet;
+        }
+        .star {
+            background-color: $c-violet;
+        }
+    }
+}
+
+.track:hover {
+    #track-title,
+    #track-artist {
+        color: $c-pink;
+    }
+}
+
+.film:hover {
+    #film-title {
+        color: $c-violet;
+    }
+    .star {
+        background-color: $c-violet;
+    }
+}
+
+.activity {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.img--square {
+    width: 5rem;
+    border-radius: $radius;
+    background: $c-light-2;
+    aspect-ratio: 1/1;
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.img--sm {
+    width: 3rem;
+}
+
+.img--portrait {
+    width: 3.333rem;
+    border-radius: $radius;
+    background: $c-light-2;
+    aspect-ratio: 1/1.5;
+    animation: pulse 1s infinite ease-in-out;
+}
+
+.text-container {
     display: grid;
     grid-template-columns: auto auto 1fr;
     align-items: center;
@@ -335,26 +335,12 @@ header {
     min-width: 0;
 }
 
-.title-truncate {
+.text-truncate {
     font-weight: 600;
-    transition: color 0.15s ease-out, text-decoration-color 0.15s linear;
+    // transition: color 0.15s ease-out, text-decoration-color 0.15s linear;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-#track-artist {
-    font-size: 0.875rem;
-    font-weight: 400;
-    transition: color 0.15s ease-out;
-}
-
-#film-art {
-    width: 3.333rem;
-    border-radius: $radius;
-    background: $c-light-2;
-    aspect-ratio: 1/1.5;
-    animation: pulse 1s infinite ease-in-out;
 }
 
 #film-rating {
@@ -507,4 +493,64 @@ footer.wrapper {
     &.open {
         visibility: visible;
     }
+}
+
+// ABOUT
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    margin: 0.25rem 0 1rem;
+}
+
+.grid-3070 {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    gap: 1.5rem;
+}
+
+.grid-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+
+    .btn {
+        font-size: 14px;
+    }
+}
+
+.grid-details {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 0.5rem 1rem;
+    align-items: center;
+
+    p + p {
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width: 699px) {
+    figure {
+        max-width: 200px;
+    }
+    .grid-3070 {
+        grid-template-columns: 1fr;
+        // gap: 1.5rem;
+    }
+}
+
+.photocards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(3.5rem), 1fr));
+}
+.photocard {
+    aspect-ratio: 55/86;
+    border-radius: 0.25rem;
+}
+
+option {
+    text-transform: capitalize;
 }
