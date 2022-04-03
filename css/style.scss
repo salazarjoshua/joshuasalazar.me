@@ -551,6 +551,33 @@ figcaption {
     border-radius: 0.25rem;
 }
 
-option {
-    text-transform: capitalize;
+input[type="radio"] {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
+input[type="radio"] + .btn {
+    color: $c-dark-2;
+}
+
+input[type="radio"]:checked + .btn {
+    background-color: $c-light-2;
+    color: $c-dark-1;
+}
+
+input[type="radio"]:focus + .btn {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($color: $c-pink, $alpha: 0.5);
+}
+
+input[type="radio"]:hover + .btn {
+    cursor: pointer;
+}
+
+// select {
+//     border: none;
+// }

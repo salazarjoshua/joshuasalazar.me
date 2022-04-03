@@ -196,52 +196,33 @@
                 <h2 class="text-xl">Collect Book</h2>
                 <p>My small collection of photocards.</p>
             </div>
-            <!-- <div>
-                <input type="radio" id="have" name="categories" value="have" checked>
-                <label for="have">Have</label>
-                <input type="radio" id="want" name="categories" value="want">
-                <label for="want">Want</label>
-            </div> -->
-            <div id="collectBook">
-                <ul class="photocards">
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <!-- Rating &gt;= 
-            <input id="member" type="text"> -->
             <div class="d-flex gap-md">
-                <!-- <div>
-                    <input type="radio" id="have" name="categories" value="have" checked>
-                    <label for="have">Have</label>
-                    <input type="radio" id="want" name="categories" value="want">
-                    <label for="want">Want</label>
-                </div> -->
-                <!-- <select id="category">
-                    <option value="have">have</option>
-                    <option value="want">want</option>
-                </select> -->
                 <div>
-                    <input type="radio" id="have" name="categories" value="have" checked>
-                    <label for="have">Have</label>
-                    <input type="radio" id="want" name="categories" value="want">
-                    <label for="want">Want</label>
+                    <input type="radio" id="have" name="categories" value="have" checked data-filter="category">
+                    <label for="have" class="btn">Collection</label>
+                    <input type="radio" id="want" name="categories" value="want" data-filter="category">
+                    <label for="want" class="btn">Wishlist</label>
                 </div>
-                <select id="groups">
-                    <option value="">any</option>
-                </select>
-                <br>
-                <select id="members">
-                    <option value="">any</option>
-                </select>
-
+                <div>
+                    <!-- <select id="groups">
+                        <option value="">All Groups</option>
+                    </select> -->
+                    <div id="groups">
+                        <button value="" data-filter="group">All Groups</button>
+                    </div>
+                    <div id="members">
+                        <button value="" data-filter="member">All</button>
+                    </div>
+                    <!-- <select id="members">
+                        <option value="">All Members</option>
+                    </select> -->
+                </div>
             </div>
-            <br>
 
-            <ul id="output" class="photocards"></ul>
+            <div id="photocardsContainer"></div>
         </section>
     </main>
+
 
     <!-- <footer class="wrapper">
         <p><small><strong class="c-pink">Made with 💖 by Joshua Salazar.</strong> Have a nice day! :)</small></p>

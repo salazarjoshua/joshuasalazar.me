@@ -977,7 +977,33 @@ figcaption {
   border-radius: 0.25rem;
 }
 
-option {
-  text-transform: capitalize;
+input[type="radio"] {
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+input[type="radio"] + .btn {
+  color: #717179;
+}
+
+input[type="radio"]:checked + .btn {
+  background-color: #F5F4F5;
+  color: #27272A;
+}
+
+input[type="radio"]:focus + .btn {
+  outline: none;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(216, 88, 136, 0.5);
+          box-shadow: 0 0 0 0.2rem rgba(216, 88, 136, 0.5);
+}
+
+input[type="radio"]:hover + .btn {
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

@@ -310,130 +310,85 @@ const photocards =
 
 
 
-// const categoryButtons = Array.from(document.querySelectorAll('[name="categories"]'));
-// let category = Array.from(categoryButtons).find((input) => input.checked).value;
-
-// // Populate Dropdown
+// Populate Dropdown
 function populateDropdown(dropdown, key) {
   const unique = photocards.map(item => item[key]).filter((value, index, self) => self.indexOf(value) === index);
+
   for (var i = 0; i < unique.length; i++) {
-    var opt = unique[i];
-    var el = document.createElement("option");
-    el.textContent = opt;
-    el.value = opt;
-    dropdown.appendChild(el);
+    var data = unique[i];
+    document.createElement("button");
+    var dropdownIndex = `<button value="${data}" data-filter="${key}">${data}</button>\n`
+    dropdown.innerHTML += dropdownIndex;
   }
 }
-const groupDropDown = document.getElementById('groups');
-populateDropdown(groupDropDown, "group");
-const memberDropDown = document.getElementById('members');
-populateDropdown(memberDropDown, "member");
 
-// // Update and Get photocards
-// function getPhotocard(data) {
-//   const photocards = document.querySelector(".photocards")
-//   photocards.innerHTML = '';
-//   data = filterByCategory(category)
-//   for (var i = 0; i < data.length; i++) {
-//     var photocardIndex =
-//       `
-//       <li><img src="${data[i].img}" alt="${data[i].group} - ${data[i].member}" class="photocard"></li>
-//     `
-//     photocards.innerHTML += photocardIndex;
-//   };
-// }
+const categoryButtons = Array.from(document.querySelectorAll('[name="categories"]'));
+const groupButtonContainers = document.querySelector('#groups');
+const memberButtonContainers = document.querySelector('#members');
 
-// // Filter by Category
-// // function filterByCategory(category) {
-// //   return photocards.filter(function (photocard) {
-// //     return photocard.category == category;
-// //   });
-// // };
-
-// // function handleChangeCategory(event) {
-// //   category = event.currentTarget.value;
-// //   getPhotocard(filterByCategory(category));
-// // }
-
-// // categoryButtons.forEach((input) =>
-// //   input.addEventListener('click', handleChangeCategory)
-// // );
-
-// // getPhotocard(filterByCategory(category));
+populateDropdown(groupButtonContainers, "group");
+populateDropdown(memberButtonContainers, "member");
 
 
-// var filterIndex = {}
+var groupButtons = Array.from(document.querySelectorAll('#groups button'));
 
-// updateFilter = photocards.filter(function (item) {
-//   for (var key in filterIndex) {
-//     if (item[key] === undefined || item[key] != filterIndex[key])
-//       return false;
-//   }
-//   return true;
-// });
+var memberButtons = Array.from(document.querySelectorAll('#members button'));
 
-// // console.table(updateFilter)
 
-// Filter by Groups and Name
+
+// Filter Photocards
+// memberDropDown.value = filters.member;
+// groupDropDown.value = filters.group;
+// categoryButtons.value = filters.category;
+
+// Filter by Photocards
 var filters = {
   member: "",
   group: "",
-  category: "",
+  category: "have",
 };
 
-// const memberOption = document.querySelector("#members");
-// const groupOption = document.querySelector("#groups");
-const categoryButtons = Array.from(document.querySelectorAll('[name="categories"]'));
-// let categoryValue = document.querySelector('input[name="categories"]:checked');
-
-
-
-memberDropDown.value = filters.member;
-groupDropDown.value = filters.group;
-categoryButtons.value = filters.category;
-
-memberDropDown.addEventListener("input", function () {
-  filters.member = memberDropDown.value;
-  update();
-});
-
-groupDropDown.addEventListener("input", function () {
-  filters.group = groupDropDown.value;
-  update();
-});
-
-function handleChangeCategory(event) {
-  categoryButtons.value = event.currentTarget.value;
-  filters.category = categoryButtons.value;
+function handleChangeFilter() {
+  filters[this.dataset.filter] = this.value;
+  console.log(this.dataset.filter);
   update();
 
 }
 
-categoryButtons.forEach((input) =>
-  input.addEventListener('click', handleChangeCategory)
-);
-// categoryButtons.addEventListener("input", function () {
-//   filters.category = category.value;
-//   update();
-// });
+categoryButtons.forEach((input) => input.addEventListener('click', handleChangeFilter));
+groupButtons.forEach((button) => button.addEventListener('click', handleChangeFilter));
+memberButtons.forEach((button) => button.addEventListener('click', handleChangeFilter));
 
-function filterMembers(hotel) {
-  return !filters.member.length || hotel.member == filters.member;
+
+function filterMembers(photocard) {
+  return (!filters.member.length || photocard.member == filters.member);
 }
 
-function filterGroups(hotel) {
-  return !filters.group.length || hotel.group == filters.group;
+function filterGroups(photocard) {
+  return !filters.group.length || photocard.group == filters.group;
 }
 
-function filterCategories(hotel) {
-  return !filters.category.length || hotel.category == filters.category;
+function filterCategories(photocard) {
+  return !filters.category.length || photocard.category == filters.category
 }
 
 function update() {
   let filteredCards = photocards.filter(filterMembers).filter(filterGroups).filter(filterCategories);
-  // let filteredCards = photocards.filter(filterMembers).filter(filterGroups);
-  output.innerHTML = filteredCards.map(hotel => `<li><img src="${hotel.img}" alt="${hotel.group} - ${hotel.member}" class="photocard"></li>`).join("");
+
+  photocardsContainer.innerHTML = ""
+  if (filteredCards.length == 0) {
+    photocardsContainer.innerHTML = `
+    <div style="text-align: center;">
+    <img src="/assets/avatar-sad.svg" alt="" style="display: inline-block;">
+    <h3>Seems like I don’t have that photocard :(</h3>
+    <p class="text-sm">You can always buy me one though.</p>
+    </div>
+    `
+  }
+  const photocardsList = document.createElement('ul');
+  photocardsList.classList.add('photocards');
+  photocardsContainer.appendChild(photocardsList);
+  photocardsList.innerHTML = filteredCards.map(photocard => `<li><img src="${photocard.img}" alt="${photocard.group} - ${photocard.member}" class="photocard"></li>`).join("");
 };
 
 update();
-
