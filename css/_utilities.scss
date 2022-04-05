@@ -11,6 +11,14 @@
     display: flex;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
 .flex-column {
     flex-direction: column;
 }
@@ -56,6 +64,10 @@
     }
 }
 
+.c-dark-1 {
+    color: $c-dark-1;
+}
+
 .c-dark-2 {
     color: $c-dark-2;
 }
@@ -71,6 +83,7 @@
 
     &--icon {
         display: flex;
+        align-items: center;
         gap: 0.25rem;
     }
 
@@ -117,7 +130,18 @@
         color: $c-dark-2;
     }
 
-    svg {
+    &--tertiary {
+        background-color: transparent;
+        // border: 2px solid $c-light-2;
+        color: $c-dark-2;
+        font-size: 14px;
+
+        // &:focus {
+        //     border: 2px solid transparent;
+        // }
+    }
+
+    &__icon {
         width: 1.5rem;
         height: 1.5rem;
         min-width: 1.5rem;

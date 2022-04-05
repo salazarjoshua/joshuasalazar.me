@@ -1,181 +1,9 @@
 [
-  // THE STORY BEGINS
-  {
-    "group": "TWICE",
-    "album": "The Story Begins",
-    "member": "Nayeon",
-    "img": "/assets/photocards/The Story Begins/tsb-random-01-nayeon.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "The Story Begins",
-    "member": "Tzuyu",
-    "img": "/assets/photocards/The Story Begins/tsb-random-09-tzuyu.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "The Story Begins",
-    "member": "Unit",
-    "img": "/assets/photocards/The Story Begins/tsb-unit-00-twice.jpg",
-    "category": "have"
-  },
-  //PAGE TWO
-  {
-    "group": "TWICE",
-    "album": "Page Two",
-    "member": "Dahyun",
-    "img": "/assets/photocards/Page Two/pt-lenti-07-dahyun.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Page Two",
-    "member": "Jihyo",
-    "img": "/assets/photocards/Page Two/pt-random-05-jihyo.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Page Two",
-    "member": "Dahyun",
-    "img": "/assets/photocards/Page Two/pt-random-07-dahyun.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Page Two",
-    "member": "Unit",
-    "img": "/assets/photocards/Page Two/pt-unit-00-twice.jpg",
-    "category": "have"
-  },
-  // FANCY YOU
-  {
-    "group": "TWICE",
-    "album": "Fancy You",
-    "member": "Chaeyoung",
-    "img": "/assets/photocards/Fancy You/fy-mono-08-chaeyoung.jpg",
-    "category": "have"
-  },
-  // TASTE OF LOVE
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Chaeyoung",
-    "img": "/assets/photocards/Taste of Love/tol-lenti-08-chaeyoung.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "All Members",
-    "img": "/assets/photocards/Taste of Love/tol-pob-00-twice.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Nayeon",
-    "img": "/assets/photocards/Taste of Love/tol-pob-01-nayeon.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Jeongyeon",
-    "img": "/assets/photocards/Taste of Love/tol-pob-02-jeongyeon.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Momo",
-    "img": "/assets/photocards/Taste of Love/tol-pob-03-momo.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Sana",
-    "img": "/assets/photocards/Taste of Love/tol-pob-04-sana.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Jihyo",
-    "img": "/assets/photocards/Taste of Love/tol-pob-05-jihyo.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Mina",
-    "img": "/assets/photocards/Taste of Love/tol-pob-06-mina.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Dahyun",
-    "img": "/assets/photocards/Taste of Love/tol-pob-07-dahyun.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Chaeyoung",
-    "img": "/assets/photocards/Taste of Love/tol-pob-08-chaeyoung.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Tzuyu",
-    "img": "/assets/photocards/Taste of Love/tol-pob-09-tzuyu.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Nayeon",
-    "img": "/assets/photocards/Taste of Love/tol-random-01-nayeon-2.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Nayeon",
-    "img": "/assets/photocards/Taste of Love/tol-random-01-nayeon.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Sana",
-    "img": "/assets/photocards/Taste of Love/tol-random-04-sana-2.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Sana",
-    "img": "/assets/photocards/Taste of Love/tol-random-04-sana.jpg",
-    "category": "have"
-  },
-  {
-    "group": "TWICE",
-    "album": "Taste of Love",
-    "member": "Chaeyoung",
-    "img": "/assets/photocards/Taste of Love/tol-random-08-chaeyoung.jpg",
-    "category": "have"
-  },
   // FORMULA OF LOVE
   {
     "group": "TWICE",
     "album": "Formula of Love",
-    "member": "TWICE",
+    "member": "All Members (TWICE)",
     "img": "/assets/photocards/Formula of Love/fol-pob-00-twice.jpg",
     "category": "have"
   },
@@ -299,10 +127,182 @@
     "category": "want"
   },
   {
-    "group": "TWICE",
+    "group": "Red Velvet",
     "album": "Formula of Love",
     "member": "Sana",
     "img": "/assets/photocards/Formula of Love/fol-scratch-04-sana.jpg",
     "category": "want"
+  },
+  // TASTE OF LOVE
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Chaeyoung",
+    "img": "/assets/photocards/Taste of Love/tol-lenti-08-chaeyoung.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "All Members",
+    "img": "/assets/photocards/Taste of Love/tol-pob-00-twice.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Nayeon",
+    "img": "/assets/photocards/Taste of Love/tol-pob-01-nayeon.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Jeongyeon",
+    "img": "/assets/photocards/Taste of Love/tol-pob-02-jeongyeon.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Momo",
+    "img": "/assets/photocards/Taste of Love/tol-pob-03-momo.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Sana",
+    "img": "/assets/photocards/Taste of Love/tol-pob-04-sana.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Jihyo",
+    "img": "/assets/photocards/Taste of Love/tol-pob-05-jihyo.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Mina",
+    "img": "/assets/photocards/Taste of Love/tol-pob-06-mina.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Dahyun",
+    "img": "/assets/photocards/Taste of Love/tol-pob-07-dahyun.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Chaeyoung",
+    "img": "/assets/photocards/Taste of Love/tol-pob-08-chaeyoung.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Tzuyu",
+    "img": "/assets/photocards/Taste of Love/tol-pob-09-tzuyu.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Nayeon",
+    "img": "/assets/photocards/Taste of Love/tol-random-01-nayeon-2.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Nayeon",
+    "img": "/assets/photocards/Taste of Love/tol-random-01-nayeon.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Sana",
+    "img": "/assets/photocards/Taste of Love/tol-random-04-sana-2.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Sana",
+    "img": "/assets/photocards/Taste of Love/tol-random-04-sana.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Taste of Love",
+    "member": "Chaeyoung",
+    "img": "/assets/photocards/Taste of Love/tol-random-08-chaeyoung.jpg",
+    "category": "have"
+  },
+  // FANCY YOU
+  {
+    "group": "TWICE",
+    "album": "Fancy You",
+    "member": "Chaeyoung",
+    "img": "/assets/photocards/Fancy You/fy-mono-08-chaeyoung.jpg",
+    "category": "have"
+  },
+  //PAGE TWO
+  {
+    "group": "TWICE",
+    "album": "Page Two",
+    "member": "Dahyun",
+    "img": "/assets/photocards/Page Two/pt-lenti-07-dahyun.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Page Two",
+    "member": "Jihyo",
+    "img": "/assets/photocards/Page Two/pt-random-05-jihyo.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Page Two",
+    "member": "Dahyun",
+    "img": "/assets/photocards/Page Two/pt-random-07-dahyun.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "Page Two",
+    "member": "Unit",
+    "img": "/assets/photocards/Page Two/pt-unit-00-twice.jpg",
+    "category": "have"
+  },
+  // THE STORY BEGINS
+  {
+    "group": "TWICE",
+    "album": "The Story Begins",
+    "member": "Nayeon",
+    "img": "/assets/photocards/The Story Begins/tsb-random-01-nayeon.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "The Story Begins",
+    "member": "Tzuyu",
+    "img": "/assets/photocards/The Story Begins/tsb-random-09-tzuyu.jpg",
+    "category": "have"
+  },
+  {
+    "group": "TWICE",
+    "album": "The Story Begins",
+    "member": "Unit",
+    "img": "/assets/photocards/The Story Begins/tsb-unit-00-twice.jpg",
+    "category": "have"
   }
 ]

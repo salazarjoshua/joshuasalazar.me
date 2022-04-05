@@ -196,26 +196,34 @@
                 <h2 class="text-xl">Collect Book</h2>
                 <p>My small collection of photocards.</p>
             </div>
-            <div class="d-flex gap-md">
-                <div>
-                    <input type="radio" id="have" name="categories" value="have" checked data-filter="category">
-                    <label for="have" class="btn">Collection</label>
-                    <input type="radio" id="want" name="categories" value="want" data-filter="category">
-                    <label for="want" class="btn">Wishlist</label>
+            <div class="filter gap-md">
+                <div class="d-flex gap-xs">
+                    <button class="btn--category btn btn--tertiary btn--active" value="have" data-filter="category">Collection</button>
+                    <button class="btn--category btn btn--tertiary" value="want" data-filter="category">Wishlist</button>
                 </div>
-                <div>
-                    <!-- <select id="groups">
-                        <option value="">All Groups</option>
-                    </select> -->
-                    <div id="groups">
-                        <button value="" data-filter="group">All Groups</button>
+                <div class="d-flex gap-xs">
+                    <div class="dropdown">
+                        <button class="btn--dropdown btn btn--tertiary btn--icon">
+                            <span>All Groups</span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.99993 11.8853C9.19768 11.8796 9.37849 11.8062 9.52539 11.648L13.8195 7.25216C13.9438 7.12786 14.0116 6.96966 14.0116 6.7832C14.0116 6.4103 13.7178 6.11084 13.3449 6.11084C13.1641 6.11084 12.9889 6.18429 12.859 6.31424L9.00558 10.275L5.1409 6.31424C5.01095 6.18994 4.84145 6.11084 4.65499 6.11084C4.28209 6.11084 3.98828 6.4103 3.98828 6.7832C3.98828 6.96966 4.05608 7.12786 4.18039 7.25216L8.48012 11.648C8.63267 11.8062 8.80218 11.8853 8.99993 11.8853Z" fill="#717179" />
+                            </svg>
+                        </button>
+                        <ul id="groups" class="dropdown__list collapse">
+                            <li><button class="selected" value="" data-filter="group">All Groups</button></li>
+                        </ul>
                     </div>
-                    <div id="members">
-                        <button value="" data-filter="member">All</button>
+                    <div class="dropdown">
+                        <button class="btn--dropdown btn btn--tertiary btn--icon">
+                            <span>All Members</span>
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.99993 11.8853C9.19768 11.8796 9.37849 11.8062 9.52539 11.648L13.8195 7.25216C13.9438 7.12786 14.0116 6.96966 14.0116 6.7832C14.0116 6.4103 13.7178 6.11084 13.3449 6.11084C13.1641 6.11084 12.9889 6.18429 12.859 6.31424L9.00558 10.275L5.1409 6.31424C5.01095 6.18994 4.84145 6.11084 4.65499 6.11084C4.28209 6.11084 3.98828 6.4103 3.98828 6.7832C3.98828 6.96966 4.05608 7.12786 4.18039 7.25216L8.48012 11.648C8.63267 11.8062 8.80218 11.8853 8.99993 11.8853Z" fill="#717179" />
+                            </svg>
+                        </button>
+                        <ul id="members" class="dropdown__list collapse">
+                            <li><button class="selected" value="" data-filter="member">All Members</button></li>
+                        </ul>
                     </div>
-                    <!-- <select id="members">
-                        <option value="">All Members</option>
-                    </select> -->
                 </div>
             </div>
 
