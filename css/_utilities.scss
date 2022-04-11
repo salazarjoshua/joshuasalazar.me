@@ -2,10 +2,6 @@
     opacity: 0;
 }
 
-.overflow-hidden {
-    overflow: hidden;
-}
-
 /** FLEX AND GRID *****/
 .d-flex {
     display: flex;
@@ -125,20 +121,14 @@
     }
 
     &--alt {
-        padding: 0.5rem;
         background-color: $c-light-2;
         color: $c-dark-2;
+        width: 100%;
     }
 
     &--tertiary {
         background-color: transparent;
-        // border: 2px solid $c-light-2;
         color: $c-dark-2;
-        font-size: 14px;
-
-        // &:focus {
-        //     border: 2px solid transparent;
-        // }
     }
 
     &__icon {
@@ -146,6 +136,11 @@
         height: 1.5rem;
         min-width: 1.5rem;
         min-height: 1.5rem;
+    }
+
+    &--active {
+        background-color: $c-light-2;
+        color: $c-dark-1;
     }
 }
 

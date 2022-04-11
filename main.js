@@ -18,7 +18,7 @@ const getSetLastFM = function () {
     dataType: "json",
     success: function (resp) {
       const recentTrack = resp.recenttracks.track[0];
-      
+
       // Get track art
       $("img#track-art").attr("src", recentTrack.image[2]["#text"]);
 
@@ -219,20 +219,19 @@ let previousActiveElement;
 
 function handleOpenWarning(event) {
   event.preventDefault();
-  
+
   const button = event.currentTarget;
   // grab anchor link
   const link = button.closest('.warning');
 
-    // change paragraph
-    const dialogText = document.querySelector('.dialog p');
-    console.log(dialogText);
-    dialogText.innerHTML = `The following film contains <span class="c-pink"><b>${link.dataset.warning}</b></span>. Do you wish to proceed?`
-  
+  // change paragraph
+  const dialogText = document.querySelector('.dialog p');
+  dialogText.innerHTML = `The following film contains <span class="c-pink"><b>${link.dataset.warning}</b></span>. Do you wish to proceed?`
+
   agreeBtn.href = link.href;
   // open modal
   dialog.classList.add('open');
-  body.classList.add('overflow-hidden');
+  body.style.overflow = "hidden";
   // change focus
   previousActiveElement = document.activeElement;
   cancelBtn.focus();
@@ -243,53 +242,55 @@ openWarning.forEach((button) => button.addEventListener('click', handleOpenWarni
 // Close Warning
 function closeWarning() {
   dialog.classList.remove('open');
-  body.classList.remove('overflow-hidden');
+  body.style.overflow = "auto";
   previousActiveElement.focus();
 }
 
 dialog.addEventListener('click', (event) => {
   const isOutside = !event.target.closest('.dialog__inner');
   if (isOutside) {
-          closeWarning();
+    closeWarning();
   }
 });
 
 window.addEventListener('keydown', (event) => {
   const isOpen = dialog.classList.contains('open');
   if (event.key === 'Escape' && isOpen) {
-          closeWarning();
+    closeWarning();
   }
 });
 
 cancelBtn.addEventListener('click', closeWarning);
 agreeBtn.addEventListener('click', closeWarning);
 
-// add all the elements inside modal which you want to make focusable
-const  focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+// Trap Focus on Modal
+const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
+function trapFocusModal(modal) {
+  const focusableContent = modal.querySelectorAll(focusableElements);
+  const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+  const lastFocusableElement = focusableContent[focusableContent.length - 1];
 
-const focusableContent = dialog.querySelectorAll(focusableElements);
-const firstFocusableElement = dialog.querySelectorAll(focusableElements)[0];
-const lastFocusableElement = focusableContent[focusableContent.length - 1];
+  document.addEventListener('keydown', function (e) {
+    let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
 
-
-document.addEventListener('keydown', function(e) {
-  let isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-
-  if (!isTabPressed) {
-    return;
-  }
-
-  if (e.shiftKey) { // if shift key pressed for shift + tab combination
-    if (document.activeElement === firstFocusableElement) {
-      lastFocusableElement.focus(); // add focus for the last focusable element
-      e.preventDefault();
+    if (!isTabPressed) {
+      return;
     }
-  } else { // if tab key is pressed
-    if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-      firstFocusableElement.focus(); // add focus for the first focusable element
-      e.preventDefault();
-    }
-  }
-});
 
+    if (e.shiftKey) { // if shift key pressed for shift + tab combination
+      if (document.activeElement === firstFocusableElement) {
+        lastFocusableElement.focus(); // add focus for the last focusable element
+        e.preventDefault();
+      }
+    } else { // if tab key is pressed
+      if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+        firstFocusableElement.focus(); // add focus for the first focusable element
+        e.preventDefault();
+      }
+    }
+  });
+}
+
+const trapFocus = document.querySelector(".trapfocus")
+trapFocusModal(trapFocus);

@@ -67,6 +67,7 @@ button {
     border: 0;
     line-height: 20px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 
     &:focus {
         outline: none;
