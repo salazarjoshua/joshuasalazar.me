@@ -1103,8 +1103,8 @@ figcaption {
   margin: 0.75rem 0 0.25rem;
 }
 
-.empty-container img {
-  display: inline-block;
+.empty-container svg {
+  margin: auto;
 }
 
 .modal {
