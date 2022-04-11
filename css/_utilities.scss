@@ -1,3 +1,32 @@
+.hide {
+    opacity: 0;
+}
+
+/** FLEX AND GRID *****/
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.gap-xs {
+    gap: 0.25rem;
+}
+
+.gap-md {
+    gap: 1rem;
+}
+
 /** COLOR *****/
 .c-green {
     color: $c-green;
@@ -31,18 +60,26 @@
     }
 }
 
+.c-dark-1 {
+    color: $c-dark-1;
+}
+
 .c-dark-2 {
     color: $c-dark-2;
 }
+
+/** BUTTONS *****/
 
 .btn {
     padding: 0.5rem 0.75rem;
     border-radius: $radius;
     color: white;
     font-weight: 600;
+    text-align: center;
 
     &--icon {
         display: flex;
+        align-items: center;
         gap: 0.25rem;
     }
 
@@ -83,11 +120,27 @@
         color: $c-dark-2;
     }
 
-    svg {
+    &--alt {
+        background-color: $c-light-2;
+        color: $c-dark-2;
+        width: 100%;
+    }
+
+    &--tertiary {
+        background-color: transparent;
+        color: $c-dark-2;
+    }
+
+    &__icon {
         width: 1.5rem;
         height: 1.5rem;
         min-width: 1.5rem;
         min-height: 1.5rem;
+    }
+
+    &--active {
+        background-color: $c-light-2;
+        color: $c-dark-1;
     }
 }
 
@@ -98,12 +151,4 @@
     border-radius: 0.2rem;
     font-weight: 600;
     color: $c-dark-2;
-}
-
-.hide {
-    opacity: 0;
-}
-
-.overflow-hidden {
-    overflow: hidden;
 }
