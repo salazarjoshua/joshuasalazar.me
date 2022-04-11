@@ -232,7 +232,7 @@ const photocards =
       "member": "Im Nayeon",
       "img": "/assets/photocards/Taste of Love/tol-random-01-nayeon-2.jpg",
       "category": "have",
-      "pfp": "/assets/pfp/2.jpg"
+      "pfp": "/assets/pfp/nayeon.jpg"
     },
     {
       "group": "TWICE",
@@ -401,12 +401,13 @@ categoryButtons.forEach((button) => button.addEventListener('click', changeCateg
 // Handle Search Bar
 function handleSearchKeyUp(e) {
   searchString = e.target.value.toLowerCase();
-  if (e.key === 'Enter') { displayPhotocards(); searchBar.blur(); };
+  if (e.key === 'Enter') displayPhotocards();
   if (searchString === '') displayPhotocards();
   if (e.key === 'Escape') { searchBar.value = '' };
 }
 
 searchBar.addEventListener('keyup', handleSearchKeyUp);
+searchBar.addEventListener('focusout', displayPhotocards);
 let generatedPhotocardList;
 
 // Handle Filter
