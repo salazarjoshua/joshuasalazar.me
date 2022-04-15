@@ -124,11 +124,21 @@
         background-color: $c-light-2;
         color: $c-dark-2;
         width: 100%;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-pink, $alpha: 0.5);
+        }
     }
 
     &--tertiary {
         background-color: transparent;
         color: $c-dark-2;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba($color: $c-pink, $alpha: 0.5);
+        }
     }
 
     &__icon {

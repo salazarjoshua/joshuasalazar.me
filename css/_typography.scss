@@ -38,11 +38,19 @@
     text-transform: uppercase;
 }
 
-p + p {
-    margin-top: 1rem;
+p {
+    b {
+        font-weight: 500;
+    }
+
+    + p {
+        margin-top: 1rem;
+    }
+
+
 }
 
-strong,
+
 b {
     font-weight: 600;
 }
@@ -58,7 +66,7 @@ a {
     color: inherit;
 
     &:focus {
-        outline-offset: 2px;
+        outline-offset: 4px;
         outline-color: rgba($color: $c-pink, $alpha: 0.5);
     }
 }

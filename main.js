@@ -42,10 +42,10 @@ const getSetLastFM = function () {
 
       // Hide Loading
       $(".track-time__icon").removeClass("hide");
-      $(".track .load").removeClass("load");
-      $(".track .load--short").removeClass("load--short");
-      $(".track .load--medium").removeClass("load--medium");
-      $(".track .load--long").removeClass("load--long");
+      $("#track .load").removeClass("load");
+      $("#track .load--short").removeClass("load--short");
+      $("#track .load--medium").removeClass("load--medium");
+      $("#track .load--long").removeClass("load--long");
     },
     // Error
     error: function (resp) {
@@ -61,10 +61,10 @@ const getSetLastFM = function () {
 
       // Hide Loading
       $(".track-time__icon").removeClass("hide");
-      $(".track .load").removeClass("load");
-      $(".track .load--short").removeClass("load--short");
-      $(".track .load--medium").removeClass("load--medium");
-      $(".track .load--long").removeClass("load--long");
+      $("#track .load").removeClass("load");
+      $("#track .load--short").removeClass("load--short");
+      $("#track .load--medium").removeClass("load--medium");
+      $("#track .load--long").removeClass("load--long");
     }
   });
 };
@@ -148,10 +148,10 @@ fetch("https://jslbrss.herokuapp.com/")
       .attr("title", filmTitle + " (" + filmYear + ")");
 
     $("#film-year").removeClass("hide");
-    $(".film .load").removeClass("load");
-    $(".film .load--short").removeClass("load--short");
-    $(".film .load--medium").removeClass("load--medium");
-    $(".film .load--long").removeClass("load--long");
+    $("#film .load").removeClass("load");
+    $("#film .load--short").removeClass("load--short");
+    $("#film .load--medium").removeClass("load--medium");
+    $("#film .load--long").removeClass("load--long");
   })
   .catch(error => {
     $("#film-art").attr("src", "https://a.ltrbxd.com/resized/film-poster/5/5/4/4/3/8/554438-happy-old-year-0-460-0-690-crop.jpg?k=dd60155386");
@@ -165,10 +165,10 @@ fetch("https://jslbrss.herokuapp.com/")
       .attr("title", "Happy Old Year (2019)");
 
     $("#film-year").removeClass("hide");
-    $(".film > .load, .load--short, .load--medium, .load--long").removeClass("load");
-    $(".film .load--short").removeClass("load--short");
-    $(".film .load--medium").removeClass("load--medium");
-    $(".film .load--long").removeClass("load--long");
+    $("#film > .load, .load--short, .load--medium, .load--long").removeClass("load");
+    $("#film .load--short").removeClass("load--short");
+    $("#film .load--medium").removeClass("load--medium");
+    $("#film .load--long").removeClass("load--long");
   })
 
 
