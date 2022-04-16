@@ -38,18 +38,9 @@
     text-transform: uppercase;
 }
 
-p {
-    b {
-        font-weight: 500;
-    }
-
-    + p {
-        margin-top: 1rem;
-    }
-
-
+p + p {
+ margin-top: 1rem;
 }
-
 
 b {
     font-weight: 600;
@@ -89,6 +80,10 @@ button {
     text-underline-offset: 3px;
     text-decoration-thickness: 2px;
     transition: text-decoration-color 0.15s linear;
+
+    &--sm {
+        text-decoration-thickness: 1px;
+    }
 
     &:hover,
     &:focus,

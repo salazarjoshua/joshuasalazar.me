@@ -71,10 +71,6 @@ body {
   text-transform: uppercase;
 }
 
-p b {
-  font-weight: 500;
-}
-
 p + p {
   margin-top: 1rem;
 }
@@ -124,6 +120,10 @@ button:focus {
   transition: -webkit-text-decoration-color 0.15s linear;
   transition: text-decoration-color 0.15s linear;
   transition: text-decoration-color 0.15s linear, -webkit-text-decoration-color 0.15s linear;
+}
+
+.link--sm {
+  text-decoration-thickness: 1px;
 }
 
 .link:hover, .link:focus, .link:focus-visible {
