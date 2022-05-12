@@ -913,6 +913,7 @@ figure {
 
 figure img {
   border-radius: 1rem;
+  aspect-ratio: 1/1;
 }
 
 figcaption {
