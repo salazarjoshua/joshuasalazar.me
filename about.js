@@ -457,6 +457,7 @@ function displayPhotocards() {
       searchString = ''
       searchBar.value = ''
       displayPhotocards();
+      searchBar.focus();
     })
   } else {
     const photocardsList = document.createElement('div');
