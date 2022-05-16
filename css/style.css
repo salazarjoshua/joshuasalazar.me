@@ -114,7 +114,7 @@ button:focus {
   text-decoration: underline;
   -webkit-text-decoration-color: inherit;
           text-decoration-color: inherit;
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
   text-decoration-thickness: 2px;
   -webkit-transition: -webkit-text-decoration-color 0.15s linear;
   transition: -webkit-text-decoration-color 0.15s linear;
@@ -431,17 +431,18 @@ header p {
   border-radius: 0.5rem;
 }
 
-.work a {
-  width: 100%;
-  text-align: center;
+.work__category {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .work__title {
-  margin: 0.25rem 0 0.5rem 0;
+  margin: 0.75rem 0 0.5rem 0;
 }
 
-.work p {
-  margin-top: 0.75rem;
+.work a {
+  width: 100%;
+  text-align: center;
 }
 
 .tooltip {
@@ -451,7 +452,7 @@ header p {
           text-decoration-color: inherit;
   -webkit-text-decoration-style: dotted;
           text-decoration-style: dotted;
-  text-underline-offset: 3px;
+  text-underline-offset: 1px;
   text-decoration-thickness: 2px;
 }
 
